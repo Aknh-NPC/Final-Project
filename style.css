@@ -88,7 +88,6 @@ body{
 .goal-number{
   width:var(--goal-size);
   height:var(--goal-size);
-  border-radius:50%;
   background-color:#444; /* fallback */
   background-size:cover;
   background-position:center;
