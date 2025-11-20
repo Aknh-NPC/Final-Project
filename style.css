@@ -1,0 +1,168 @@
+:root{
+  --bg:#f7f9fb;
+  --card:#ffffff;
+  --muted:#666;
+  --accent:#2b7a78;
+  --accent-2:#dd6b20;
+  --max-width:1100px;
+  --radius:8px;
+  --goal-size:64px; /* circle diameter */
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  color-scheme: light;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--bg);
+  color:#222;
+  line-height:1.45;
+  -webkit-font-smoothing:antialiased;
+}
+
+.container{
+  max-width:var(--max-width);
+  margin:0 auto;
+  padding:1rem;
+}
+
+.site-header{
+  background:linear-gradient(90deg, rgba(43,122,120,0.95), rgba(34,106,104,0.95));
+  color:#fff;
+  padding:0.75rem 0;
+}
+.brand{margin:0;font-size:1.25rem}
+.nav{list-style:none;margin:0;padding:0;display:flex;gap:1rem}
+.nav a{color:rgba(255,255,255,0.95);text-decoration:none;font-weight:600}
+.nav a:focus{outline:3px solid rgba(255,255,255,0.12);border-radius:4px}
+
+.hero{
+  padding:2.25rem 0;
+  text-align:center;
+}
+.hero h2{margin:0 0 0.5rem;font-size:1.6rem}
+.hero p{margin:0.25rem 0 0.75rem;color:var(--muted)}
+
+.btn{
+  display:inline-block;
+  padding:0.6rem 1rem;
+  background:var(--accent);
+  color:#fff;
+  text-decoration:none;
+  border-radius:6px;
+  font-weight:700;
+}
+.btn:hover{background:var(--accent-2)}
+
+.lead{color:var(--muted)}
+
+.sdg-grid{
+  display:grid;
+  gap:1rem;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  margin:1rem 0 2rem;
+}
+
+/* Card */
+.sdg-card{
+  background:var(--card);
+  border-radius:var(--radius);
+  box-shadow:0 2px 8px rgba(0,0,0,0.06);
+  transition:transform .15s ease, box-shadow .15s ease;
+  overflow:hidden;
+}
+.sdg-card:hover{transform:translateY(-6px);box-shadow:0 8px 18px rgba(0,0,0,0.08)}
+
+/* Make card content a row: image circle left + text right */
+.sdg-card a{
+  display:flex;
+  gap:1rem;
+  align-items:center;
+  color:inherit;
+  text-decoration:none;
+  padding:1rem;
+  height:100%;
+}
+
+/* Circle that uses background-image; number label overlaid */
+.goal-number{
+  width:var(--goal-size);
+  height:var(--goal-size);
+  border-radius:50%;
+  background-color:#444; /* fallback */
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  color:#fff;
+  font-weight:800;
+  font-size:1rem;
+  text-shadow:0 2px 6px rgba(0,0,0,0.6);
+  position:relative;
+  flex:0 0 auto;
+}
+
+/* subtle dark overlay so the white number remains readable */
+.goal-number::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:inherit;
+  background:linear-gradient(180deg, rgba(0,0,0,0.18), rgba(0,0,0,0.18));
+  z-index:0;
+  pointer-events:none;
+}
+.goal-number .goal-label{ position:relative; z-index:1; }
+
+/* smaller heading adjustments */
+.sdg-card h4{margin:0 0 0.25rem;font-size:1.05rem}
+.sdg-card p{margin:0;color:var(--muted);font-size:0.95rem}
+
+/* screen-reader only helper (for image-only circles) */
+.sr-only {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0);
+  white-space: nowrap; border: 0;
+}
+
+@media (max-width:640px){
+  .sdg-card a{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+  .goal-number{ width:56px; height:56px; }
+}
+
+/* Per-goal background images: replace these paths with your own images */
+.goal-1 { background-image: urlhttps://dr-aze.github.io/Final-Project/images/logo/sdg1_logo.png'); }
+.goal-2 { background-image: url('/images/goal2.jpg'); }
+.goal-3 { background-image: url('/images/goal3.jpg'); }
+.goal-4 { background-image: url('/images/goal4.jpg'); }
+.goal-5 { background-image: url('/images/goal5.jpg'); }
+.goal-6 { background-image: url('/images/goal6.jpg'); }
+.goal-7 { background-image: url('/images/goal7.jpg'); }
+.goal-8 { background-image: url('/images/goal8.jpg'); }
+.goal-9 { background-image: url('/images/goal9.jpg'); }
+.goal-10{ background-image: url('/images/goal10.jpg'); }
+.goal-11{ background-image: url('/images/goal11.jpg'); }
+.goal-12{ background-image: url('/images/goal12.jpg'); }
+.goal-13{ background-image: url('/images/goal13.jpg'); }
+.goal-14{ background-image: url('/images/goal14.jpg'); }
+.goal-15{ background-image: url('/images/goal15.jpg'); }
+.goal-16{ background-image: url('/images/goal16.jpg'); }
+.goal-17{ background-image: url('/images/goal17.jpg'); }
+
+/* footer and other elements kept as before */
+.take-action ul{margin:0;padding-left:1.25rem}
+
+.site-footer{
+  padding:1rem 0;
+  background:#fff;
+  border-top:1px solid #e6e9ee;
+  margin-top:2rem;
+}
+.site-footer a{color:var(--accent)}
